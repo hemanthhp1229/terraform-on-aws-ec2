@@ -34,12 +34,8 @@ module "alb" {
       protocol_version = "HTTP1"
       targets = {
         my_ec2 = {
-          target_id = module.ec2_private.id[0]
+          target_id = module.ec2_private.id
           port      = 80
-        },
-        my_ec2_again = {
-          target_id = module.ec2_private.id[1]
-          port      = 8080
         }
       }
       tags = local.common_tags
