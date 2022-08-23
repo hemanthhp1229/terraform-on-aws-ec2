@@ -13,7 +13,6 @@ module "ec2_private" {
   vpc_security_group_ids = [module.private_sg.this_security_group_id]
   #subnet_id              = module.vpc.public_subnets[0]  
   subnet_id =module.vpc.private_subnets[0]
-#   instance_count         = var.private_instance_count
   user_data = file("${path.module}/app1-install.sh")
   tags = local.common_tags
 }
